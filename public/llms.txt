@@ -1,0 +1,58 @@
+# Rahul Babu — rahulbk.com
+
+> Personal site of Rahul Babu: 19-year-old builder, patent-published AI inventor,
+> founder of Laundroswipe (600+ active users), Harvard HPAIR delegate, CFA L1
+> candidate (Aug 2026). Dual study at VIT Chennai (CS) and IIT Madras (Data Science).
+> Building since age 8.
+
+## Identity
+
+- **Full name:** Rahul Babu
+- **Also known as:** Rahul Babu K, tuttucodes
+- **Location:** Chennai, India
+- **Email:** rahulbabuk05@gmail.com
+- **Phone:** +91 90744 17293
+- **Calendar:** https://cal.com/rahulbabu
+- **GitHub:** https://github.com/tuttucodes
+- **LinkedIn:** https://linkedin.com/in/rahulbabuk
+
+## Primary pages
+
+- [Home](https://rahulbk.com/): full portfolio with three audience modes — General, For Recruiters, For Investors.
+- [Build With Rahul](https://rahulbk.com/build-together): AI-powered 5-question build planner that generates a personalised 30-day action plan. Live demo of the AI features Rahul ships.
+- [For Recruiters](https://rahulbk.com/?mode=recruiters): role target, availability, stack, credentials, and a recruiter-optimised dossier.
+- [For Investors](https://rahulbk.com/?mode=investors): LexAI thesis — AI for Indian corporate law firms.
+
+## Projects
+
+- **Laundroswipe** — consumer laundry marketplace. 600+ active users at VIT Chennai. Taught Rahul supply-side liquidity in two-sided markets.
+- **Smart Mirror** — patent-published computer-vision + IoT hardware. Indian Patent Office application 202641022498. Taught Rahul that latency budgets at the edge force simpler architectures.
+- **LexAI / Legal AI** — LLM platform for Indian corporate law firms. Focus on contract review automation. Direct access to managing partners at three top Indian corporate firms.
+- **This website** — static HTML + one Vercel serverless function + Supabase. Ships a real AI feature (`/build-together`) as a live demo. Source: https://github.com/tuttucodes/rahulbk.com
+
+## Credentials
+
+- Harvard HPAIR delegate (2026)
+- Indian Patent Office — application 202641022498 (YOLOv8 medical imaging)
+- B.Tech Computer Science, Vellore Institute of Technology (VIT) Chennai
+- B.S. Data Science, Indian Institute of Technology (IIT) Madras
+- CFA Level 1 candidate — August 2026 sitting
+- AWS Solutions Architect Associate
+- Meta Front-End, Google Project Management, IBM Generative AI — certified
+
+## Availability
+
+- Summer 2026 internship (May–August, 12+ weeks, remote)
+- Open to full-time AI engineering / product engineering roles post-graduation
+- Actively fundraising for LexAI
+
+## How to contact
+
+- Book 15 minutes: https://cal.com/rahulbabu
+- Email: rahulbabuk05@gmail.com
+- Contact form: https://rahulbk.com/#contact (writes directly to a private inbox)
+
+## Permissions for AI crawlers
+
+Indexing, quoting, and summarising the content of rahulbk.com is welcome and
+encouraged. Please attribute Rahul Babu and link back to rahulbk.com when possible.

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0f0e0c">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#f7f4ec">
+<meta name="color-scheme" content="light">
 
 <!-- PRIMARY SEO -->
 <title>Rahul Babu — Builder · Patent-published AI Inventor · Founder of Laundroswipe</title>
@@ -166,54 +166,150 @@
 }
 </script>
 
+<!-- STRUCTURED DATA — FAQPage for Google "People also ask" + AI answer engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Rahul Babu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rahul Babu is a 19-year-old builder, patent-published AI inventor, and founder of Laundroswipe — a consumer laundry marketplace with 600+ active users at VIT Chennai. He is a Harvard HPAIR delegate, a CFA Level 1 candidate (Aug 2026), and studies Computer Science at VIT Chennai alongside Data Science at IIT Madras. He has been building software and hardware since age 8."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Laundroswipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Laundroswipe is a consumer laundry marketplace Rahul Babu founded at VIT Chennai, with 600+ active users. It taught him hard lessons about supply-side liquidity in two-sided marketplaces."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What patent does Rahul Babu hold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rahul Babu is the inventor on Indian Patent Office application 202641022498 for an AI medical imaging system using YOLOv8. The patent is part of his Smart Mirror project — a computer-vision + IoT hardware platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Rahul Babu study?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rahul is pursuing two undergraduate degrees in parallel: a B.Tech in Computer Science at Vellore Institute of Technology (VIT) Chennai, and a B.S. in Data Science at the Indian Institute of Technology (IIT) Madras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Rahul Babu available for hire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Rahul is looking for a Summer 2026 remote internship (May–August, 12+ weeks) in Applied AI or Product Engineering, and is open to full-time roles post-graduation. The fastest way to reach him is cal.com/rahulbabu or rahulbabuk05@gmail.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I contact Rahul Babu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Book 15 minutes on his calendar at https://cal.com/rahulbabu, email rahulbabuk05@gmail.com, or use the live contact form at rahulbk.com. He replies within 48 hours."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- STRUCTURED DATA — BreadcrumbList for search result hierarchy -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rahulbk.com/" },
+    { "@type": "ListItem", "position": 2, "name": "For Recruiters", "item": "https://rahulbk.com/?mode=recruiters" },
+    { "@type": "ListItem", "position": 3, "name": "For Investors", "item": "https://rahulbk.com/?mode=investors" },
+    { "@type": "ListItem", "position": 4, "name": "Build With Rahul", "item": "https://rahulbk.com/build-together" }
+  ]
+}
+</script>
+
+<!-- SEARCH ENGINE VERIFICATION — replace tokens after registering the property -->
+<!-- Google Search Console: https://search.google.com/search-console -->
+<meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_TOKEN">
+<!-- Bing Webmaster Tools: https://www.bing.com/webmasters -->
+<meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN">
+<!-- Yandex: https://webmaster.yandex.com -->
+<meta name="yandex-verification" content="REPLACE_WITH_YANDEX_TOKEN">
+
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0f0e0c;
-  --bg-2: #17150f;
-  --bg-3: #1c1a14;
-  --ink: #f5f0e6;
-  --ink-dim: #a09688;
-  --ink-faint: #6b6458;
-  --accent: #ff5b1f;
-  --accent-2: #d4a056;
-  --accent-soft: rgba(255, 91, 31, 0.12);
-  --green: #6fbf73;
-  --line: #2a2520;
-  --line-2: #3a332c;
-  --display: 'Fraunces', 'Times New Roman', serif;
+  /* LIGHT EDITORIAL PALETTE — warm paper base, deep ink, preserved orange brand */
+  --bg: #f7f4ec;
+  --bg-2: #ffffff;
+  --bg-3: #efeadd;
+  --ink: #0b0b0b;
+  --ink-dim: #4c4a46;
+  --ink-faint: #8a857b;
+  --accent: #d94414;
+  --accent-2: #a2631f;
+  --accent-soft: rgba(217, 68, 20, 0.06);
+  --green: #1a7a4d;
+  --line: rgba(11, 11, 11, 0.08);
+  --line-2: rgba(11, 11, 11, 0.16);
+  /* TYPOGRAPHY — Plus Jakarta Sans body, Instrument Serif display accents, Fraunces kept for italic em */
+  --display: 'Instrument Serif', 'Fraunces', 'Times New Roman', serif;
+  --body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+::selection { background: var(--accent); color: #fff; }
 body {
   background: var(--bg); color: var(--ink);
-  font-family: var(--display); font-weight: 400;
-  line-height: 1.5; overflow-x: hidden;
+  font-family: var(--body); font-weight: 400;
+  line-height: 1.55; overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   background-image:
-    radial-gradient(ellipse at 20% 0%, rgba(255, 91, 31, 0.08), transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(212, 160, 86, 0.06), transparent 55%);
+    radial-gradient(ellipse 900px 500px at 12% -5%, rgba(217, 68, 20, 0.08), transparent 60%),
+    radial-gradient(ellipse 800px 520px at 92% 102%, rgba(162, 99, 31, 0.07), transparent 60%);
+  background-attachment: fixed;
 }
 body::before {
   content: ''; position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  opacity: 0.035; pointer-events: none; z-index: 1; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.04; pointer-events: none; z-index: 1; mix-blend-mode: multiply;
 }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
 
-/* ======= NAV ======= */
+/* ======= NAV — floating glass pill ======= */
 nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  padding: 20px 32px;
+  position: fixed; top: 14px; left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 14px 10px 22px;
   display: flex; justify-content: space-between; align-items: center;
+  gap: 22px;
   z-index: 100;
-  backdrop-filter: blur(16px);
-  background: rgba(15, 14, 12, 0.72);
-  border-bottom: 1px solid var(--line);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(11, 11, 11, 0.06);
+  border-radius: 999px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.9) inset,
+    0 10px 40px -12px rgba(11, 11, 11, 0.18),
+    0 2px 8px rgba(11, 11, 11, 0.04);
+  max-width: calc(100% - 32px);
+  width: auto;
 }
 .nav-logo {
   font-family: var(--mono); font-size: 13px;
@@ -354,18 +450,18 @@ h1 .strike {
   text-transform: uppercase;
   padding: 8px 14px;
   border: 1px solid var(--line);
-  background: rgba(15, 14, 12, 0.7);
-  backdrop-filter: blur(8px);
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(160%) blur(10px);
+  border-radius: 999px;
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.85;
   z-index: 3;
 }
 .constellation-tip::before { content: '◉ '; color: var(--accent); }
 .node-detail {
   position: absolute;
   padding: 20px 24px;
-  background: rgba(28, 26, 20, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   border: 1px solid var(--accent);
   backdrop-filter: blur(12px);
   max-width: 300px;
@@ -374,7 +470,8 @@ h1 .strike {
   transform: translate(-50%, calc(-100% - 12px));
   opacity: 0;
   transition: opacity 0.2s;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 91, 31, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px -12px rgba(11, 11, 11, 0.18), 0 0 0 4px rgba(217, 68, 20, 0.06);
 }
 .node-detail.visible { opacity: 1; }
 .node-detail-year {
@@ -1014,12 +1111,12 @@ h2 em { font-style: italic; color: var(--accent-2); font-weight: 500; }
 /* EASTER EGG MODE */
 .easter-overlay {
   position: fixed; inset: 0;
-  background: rgba(15, 14, 12, 0.95);
+  background: rgba(247, 244, 236, 0.96);
   z-index: 200;
   display: none;
   align-items: center; justify-content: center;
   flex-direction: column; gap: 24px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: saturate(180%) blur(24px);
 }
 .easter-overlay.on { display: flex; animation: fadeIn 0.5s; }
 .easter-text {
@@ -1039,7 +1136,25 @@ h2 em { font-style: italic; color: var(--accent-2); font-weight: 500; }
   text-transform: uppercase; cursor: pointer;
   border: 1px solid var(--accent); padding: 12px 20px;
   background: transparent;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 999px;
 }
+.easter-close:hover {
+  background: var(--accent); color: #fff;
+  transform: translateY(-2px);
+}
+.easter-repo {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-dim); letter-spacing: 0.15em;
+  text-transform: uppercase; text-decoration: none;
+  border-bottom: 1px solid var(--line-2);
+  padding-bottom: 4px;
+  transition: color 0.2s;
+}
+.easter-repo:hover { color: var(--accent); border-color: var(--accent); }
+.easter-repo::before { content: '↗ '; color: var(--accent); }
+.easter-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; justify-content: center; }
 
 /* FOOTER */
 footer {
@@ -2156,7 +2271,10 @@ footer {
   <div class="easter-sub">◉ You found it ◉</div>
   <div class="easter-text">"The best way to predict the future<br>is to <em>build it.</em>"</div>
   <div class="easter-sub">— every engineer who shipped</div>
-  <button class="easter-close" onclick="document.getElementById('easterOverlay').classList.remove('on')">Close ↗</button>
+  <div class="easter-actions">
+    <a class="easter-repo" href="https://github.com/tuttucodes/rahulbk.com" target="_blank" rel="noopener">See how this site is built — github.com/tuttucodes/rahulbk.com</a>
+    <button class="easter-close" onclick="document.getElementById('easterOverlay').classList.remove('on')">Close ↗</button>
+  </div>
 </div>
 
 <script>
@@ -2369,11 +2487,11 @@ document.addEventListener('keydown', (e) => {
   ];
 
   const clusterColors = {
-    origin:   '#d4a056',
-    media:    '#a09688',
-    hardware: '#ff8040',
-    ai:       '#ff5b1f',
-    startup:  '#f5f0e6'
+    origin:   '#a2631f',
+    media:    '#4c4a46',
+    hardware: '#e06632',
+    ai:       '#d94414',
+    startup:  '#0b0b0b'
   };
 
   // Initialize node positions & velocities
@@ -2536,7 +2654,7 @@ document.addEventListener('keydown', (e) => {
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.lineTo(b.x, b.y);
-      ctx.strokeStyle = isHotEdge ? 'rgba(255, 91, 31, 0.5)' : 'rgba(160, 150, 136, 0.18)';
+      ctx.strokeStyle = isHotEdge ? 'rgba(217, 68, 20, 0.6)' : 'rgba(11, 11, 11, 0.18)';
       ctx.lineWidth = isHotEdge ? 1.5 : 1;
       ctx.stroke();
     }
@@ -2562,12 +2680,12 @@ document.addEventListener('keydown', (e) => {
       ctx.arc(n.x, n.y, r + 3, 0, Math.PI * 2);
       ctx.stroke();
       // Fill
-      ctx.fillStyle = isHot ? '#ff5b1f' : n.color;
+      ctx.fillStyle = isHot ? '#d94414' : n.color;
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
       ctx.fill();
       // Inner highlight
-      ctx.fillStyle = 'rgba(245, 240, 230, 0.25)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
       ctx.beginPath();
       ctx.arc(n.x - r * 0.3, n.y - r * 0.3, r * 0.35, 0, Math.PI * 2);
       ctx.fill();
