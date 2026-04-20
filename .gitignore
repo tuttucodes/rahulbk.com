@@ -1,0 +1,26 @@
+node_modules
+.DS_Store
+._.*
+._*
+
+# Secrets — NEVER commit
+.env
+.env.local
+.env.development
+.env.production
+
+# Vercel
+.vercel
+
+# Build artefacts (regenerated from SVG)
+og.png
+favicon-32.png
+apple-touch-icon.png
+
+# Editor
+.idea
+.vscode
+*.swp
+
+# OS crud
+Thumbs.db

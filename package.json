@@ -1,0 +1,24 @@
+{
+  "name": "rahulbk-com",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Personal site of Rahul Babu — builder, engineer, patent-published AI inventor.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build-og.mjs",
+    "dev": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "author": "Rahul Babu <rahulbabuk05@gmail.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://rahulbk.com"
+}

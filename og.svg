@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="pool1" cx="18%" cy="8%" r="60%">
+      <stop offset="0%" stop-color="#ff5b1f" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ff5b1f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pool2" cx="92%" cy="100%" r="65%">
+      <stop offset="0%" stop-color="#d4a056" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#d4a056" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/>
+      <feColorMatrix values="0 0 0 0 0.96  0 0 0 0 0.94  0 0 0 0 0.90  0 0 0 0.035 0"/>
+    </filter>
+    <style>
+      .serif { font-family: 'Fraunces', 'Times New Roman', serif; }
+      .mono  { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+    </style>
+  </defs>
+
+  <!-- Base -->
+  <rect width="1200" height="630" fill="#0f0e0c"/>
+  <rect width="1200" height="630" fill="url(#pool1)"/>
+  <rect width="1200" height="630" fill="url(#pool2)"/>
+  <rect width="1200" height="630" fill="#000" filter="url(#noise)" opacity="0.5"/>
+
+  <!-- Border bands -->
+  <line x1="0" y1="1" x2="1200" y2="1" stroke="#2a2520" stroke-width="2"/>
+  <line x1="0" y1="629" x2="1200" y2="629" stroke="#2a2520" stroke-width="2"/>
+
+  <!-- Top label -->
+  <g transform="translate(72, 90)">
+    <line x1="0" y1="0" x2="32" y2="0" stroke="#ff5b1f" stroke-width="2"/>
+    <text x="44" y="5" class="mono" font-size="16" fill="#ff5b1f" letter-spacing="3.5" font-weight="500">
+      RAHUL BABU · BUILDING SINCE AGE 8
+    </text>
+  </g>
+
+  <!-- Logo mark -->
+  <g transform="translate(1056, 72)">
+    <path d="M36 8 L68 58 L4 58 Z" fill="none" stroke="#ff5b1f" stroke-width="2.6" stroke-linejoin="round"/>
+    <circle cx="36" cy="44" r="3" fill="#d4a056"/>
+  </g>
+
+  <!-- Headline -->
+  <g transform="translate(72, 230)">
+    <text class="serif" font-size="108" fill="#f5f0e6" font-weight="300" letter-spacing="-3.5">
+      <tspan x="0" dy="0">Builder.</tspan>
+      <tspan x="0" dy="104" fill="#d4a056" font-style="italic" font-weight="500">Engineer.</tspan>
+      <tspan x="430" dy="0" fill="#f5f0e6" font-style="normal" font-weight="300"> Inventor.</tspan>
+    </text>
+  </g>
+
+  <!-- Right column credentials -->
+  <g transform="translate(72, 480)">
+    <text class="mono" font-size="15" fill="#a09688" letter-spacing="2" font-weight="400">
+      <tspan x="0" dy="0">PATENT-PUBLISHED AI · LAUNDROSWIPE (600+ USERS)</tspan>
+      <tspan x="0" dy="26">HARVARD HPAIR · CS @ VIT · DS @ IIT MADRAS · CFA L1</tspan>
+    </text>
+  </g>
+
+  <!-- URL pill -->
+  <g transform="translate(72, 556)">
+    <rect x="0" y="0" width="188" height="38" rx="2" fill="none" stroke="#3a332c"/>
+    <text x="94" y="25" class="mono" font-size="14" fill="#ff5b1f" text-anchor="middle" letter-spacing="3" font-weight="500">
+      RAHULBK.COM
+    </text>
+  </g>
+
+  <g transform="translate(280, 556)">
+    <text x="0" y="25" class="mono" font-size="13" fill="#6b6458" letter-spacing="2">
+      · BUILD WITH RAHUL — CAL.COM/RAHULBABU
+    </text>
+  </g>
+
+  <!-- Constellation accent (right side) -->
+  <g transform="translate(820, 280)" opacity="0.6">
+    <g stroke="#d4a056" stroke-width="0.8" opacity="0.5">
+      <line x1="40" y1="0" x2="120" y2="60"/>
+      <line x1="120" y1="60" x2="60" y2="140"/>
+      <line x1="60" y1="140" x2="160" y2="180"/>
+      <line x1="160" y1="180" x2="220" y2="80"/>
+      <line x1="220" y1="80" x2="120" y2="60"/>
+      <line x1="0" y1="90" x2="60" y2="140"/>
+      <line x1="40" y1="0" x2="220" y2="80"/>
+    </g>
+    <g fill="#ff5b1f">
+      <circle cx="40" cy="0" r="4"/>
+      <circle cx="220" cy="80" r="5"/>
+      <circle cx="160" cy="180" r="3.5"/>
+    </g>
+    <g fill="#f5f0e6" opacity="0.85">
+      <circle cx="120" cy="60" r="3"/>
+      <circle cx="60" cy="140" r="3"/>
+      <circle cx="0" cy="90" r="2.5"/>
+    </g>
+  </g>
+</svg>

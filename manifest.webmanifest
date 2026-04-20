@@ -1,0 +1,22 @@
+{
+  "name": "Rahul Babu — Builder · Engineer · Inventor",
+  "short_name": "Rahul Babu",
+  "description": "Patent-published AI inventor. Founder of Laundroswipe (600+ users). Harvard HPAIR delegate.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f0e0c",
+  "theme_color": "#0f0e0c",
+  "lang": "en",
+  "icons": [
+    { "src": "/favicon.svg",          "sizes": "any",     "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/favicon-32.png",       "sizes": "32x32",   "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["personal", "portfolio", "productivity"],
+  "shortcuts": [
+    { "name": "Book a call",        "url": "https://cal.com/rahulbabu" },
+    { "name": "Try the AI planner", "url": "/build-together" }
+  ]
+}
