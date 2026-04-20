@@ -7,22 +7,24 @@ function for the contact form. No framework, no build ceremony.
 
 ```
 .
-├── index.html                 Portfolio — general / recruiters / investors modes
-├── build-together.html        AI-powered build planner (5-question quiz)
-├── thanks.html                Contact form success page (used as redirect fallback)
+├── public/                        STATIC ROOT — served as the website
+│   ├── index.html                 Portfolio: general / recruiters / investors modes
+│   ├── build-together.html        AI-powered build planner (5-question quiz)
+│   ├── thanks.html                Contact form success page
+│   ├── og.svg → og.png            Social preview (1200×630) — PNG generated at build
+│   ├── favicon.svg → *.png        Favicon master — resized at build
+│   ├── manifest.webmanifest       PWA-lite
+│   ├── robots.txt / sitemap.xml   SEO
 ├── api/
-│   └── contact.js             POST handler → validates + rate-limits + writes to Supabase
+│   └── contact.js                 POST → validates + rate-limits + writes to Supabase
 ├── scripts/
-│   └── build-og.mjs           Generates og.png / favicons from SVG at build time
-├── supabase-schema.sql        Run once in the Supabase SQL editor
-├── vercel.json                Headers, redirects, short-URLs
-├── robots.txt / sitemap.xml   SEO
-├── og.svg                     Social preview (1200×630) — converted to og.png at build
-├── favicon.svg                Favicon master — converted to png sizes at build
-├── manifest.webmanifest       PWA-lite
-├── package.json
-├── .env.example               Template for Supabase + email env vars
-└── .gitignore
+│   └── build-og.mjs               Generates og.png / favicons from SVG at build
+├── supabase-schema.sql            Run once in the Supabase SQL editor
+├── vercel.json                    Headers, redirects, short URLs
+├── package.json                   Runtime: @supabase/supabase-js — Dev: sharp
+├── .env.example                   Template for Supabase + email env vars
+├── .vercelignore / .gitignore
+└── README.md
 ```
 
 ## First-time setup

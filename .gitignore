@@ -12,10 +12,13 @@ node_modules
 # Vercel
 .vercel
 
-# Build artefacts (regenerated from SVG)
-og.png
-favicon-32.png
-apple-touch-icon.png
+# Session / autonomous logs (local only)
+.remember
+
+# Build artefacts (regenerated from SVG on every Vercel build)
+public/og.png
+public/favicon-32.png
+public/apple-touch-icon.png
 
 # Editor
 .idea
@@ -24,3 +27,4 @@ apple-touch-icon.png
 
 # OS crud
 Thumbs.db
+.env*.local
