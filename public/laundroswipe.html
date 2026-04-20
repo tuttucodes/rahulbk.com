@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f7f4ec">
+<meta name="color-scheme" content="light">
+
+<title>Laundroswipe — consumer laundry marketplace (600+ users) · Case Study · Rahul Babu</title>
+<meta name="description" content="Case study of Laundroswipe — a two-sided laundry marketplace shipped at VIT Chennai with 600+ active users. Built solo on Next.js, Supabase, Vercel, and Cloudflare. What worked, what didn't, and what it taught me about supply-side liquidity.">
+<meta name="keywords" content="Laundroswipe, Rahul Babu Laundroswipe, VIT Chennai startup, consumer marketplace case study, two-sided marketplace, student founder India, Next.js Supabase case study, supply-side liquidity">
+<meta name="author" content="Rahul Babu">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://rahulbk.com/laundroswipe">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rahul Babu">
+<meta property="og:title" content="Laundroswipe — 600+ active users, shipped solo · Case Study">
+<meta property="og:description" content="What I built, what I learned, what I'd do differently. Laundroswipe — a two-sided marketplace at VIT Chennai.">
+<meta property="og:url" content="https://rahulbk.com/laundroswipe">
+<meta property="og:image" content="https://rahulbk.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Laundroswipe — 600+ users, shipped solo">
+<meta name="twitter:description" content="A two-sided marketplace at VIT Chennai. What it taught me about supply-side liquidity.">
+<meta name="twitter:image" content="https://rahulbk.com/og.png">
+<meta name="twitter:creator" content="@itsrahulbk">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": "https://rahulbk.com/laundroswipe",
+  "headline": "Laundroswipe — a two-sided laundry marketplace",
+  "author": { "@type": "Person", "@id": "https://rahulbk.com/#person", "name": "Rahul Babu" },
+  "about": { "@type": "SoftwareApplication", "name": "Laundroswipe", "url": "https://laundroswipe.com", "applicationCategory": "BusinessApplication" },
+  "datePublished": "2026-04-20",
+  "inLanguage": "en",
+  "keywords": ["marketplace", "two-sided marketplace", "consumer", "Next.js", "Supabase"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f7f4ec;
+  --bg-2: #ffffff;
+  --bg-3: #efeadd;
+  --ink: #0b0b0b;
+  --ink-dim: #4c4a46;
+  --ink-faint: #8a857b;
+  --accent: #d94414;
+  --accent-2: #a2631f;
+  --accent-soft: rgba(217, 68, 20, 0.06);
+  --green: #1a7a4d;
+  --line: rgba(11, 11, 11, 0.08);
+  --line-2: rgba(11, 11, 11, 0.16);
+  --display: 'Instrument Serif', 'Times New Roman', serif;
+  --body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+::selection { background: var(--accent); color: #fff; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-weight: 400;
+  line-height: 1.6; overflow-x: hidden; min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 900px 500px at 12% -5%, rgba(217, 68, 20, 0.08), transparent 60%),
+    radial-gradient(ellipse 800px 520px at 92% 102%, rgba(162, 99, 31, 0.07), transparent 60%);
+  background-attachment: fixed;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.04; pointer-events: none; z-index: 1; mix-blend-mode: multiply;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 14px; left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 14px 10px 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 22px; z-index: 100;
+  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(11, 11, 11, 0.06);
+  border-radius: 999px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.9) inset,
+    0 10px 40px -12px rgba(11, 11, 11, 0.18),
+    0 2px 8px rgba(11, 11, 11, 0.04);
+  max-width: calc(100% - 32px);
+}
+.nav-logo {
+  font-family: var(--mono); font-size: 13px;
+  letter-spacing: 0.1em; color: var(--accent);
+  text-decoration: none;
+}
+.nav-logo::before { content: '▲ '; }
+.nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-link {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 9px 14px;
+  color: var(--ink-dim); text-decoration: none;
+  border-radius: 999px; transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  white-space: nowrap;
+}
+.nav-link:hover { color: var(--ink); background: rgba(11, 11, 11, 0.04); }
+
+/* CURSOR SPOTLIGHT */
+#cursorSpotlight {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0; opacity: 0.9;
+  mix-blend-mode: multiply;
+}
+@media (prefers-reduced-motion: reduce) { #cursorSpotlight { display: none; } }
+
+main {
+  max-width: 980px; margin: 0 auto;
+  padding: 140px 32px 80px;
+  position: relative; z-index: 2;
+}
+
+/* BREADCRUMB */
+.crumb {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-faint); letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 32px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.crumb a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+.crumb a:hover { color: var(--accent); }
+.crumb-sep { color: var(--line-2); }
+.crumb-now { color: var(--accent); }
+
+/* HERO */
+.cs-hero { margin-bottom: 72px; }
+.cs-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 12px; font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent-soft);
+  background: var(--accent-soft); border-radius: 999px;
+  margin-bottom: 20px;
+}
+.cs-tag-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: cs-pulse 1.8s ease-in-out infinite; }
+@keyframes cs-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+.cs-h1 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px); line-height: 0.92;
+  letter-spacing: -0.035em; margin-bottom: 26px;
+}
+.cs-h1 em { font-style: italic; color: var(--accent-2); font-weight: 500; }
+.cs-sub {
+  font-size: 19px; color: var(--ink-dim); line-height: 1.55;
+  max-width: 620px; margin-bottom: 40px;
+}
+.cs-sub strong { color: var(--ink); font-weight: 500; }
+
+.cs-meta {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; border: 1px solid var(--line);
+  background: var(--bg-2);
+  border-radius: 4px; overflow: hidden;
+  margin-bottom: 48px;
+}
+.cs-meta-cell { padding: 22px 20px; border-right: 1px solid var(--line); }
+.cs-meta-cell:last-child { border-right: none; }
+.cs-meta-label {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--accent); letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.cs-meta-val {
+  font-family: var(--display); font-size: 22px;
+  color: var(--ink); letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.cs-meta-val em { font-style: italic; color: var(--accent-2); }
+
+.cs-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 14px 24px; text-decoration: none;
+  border-radius: 999px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff;
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.cs-cta:hover { background: transparent; color: var(--accent); transform: translateY(-2px); }
+.cs-cta::after { content: '↗'; font-size: 14px; }
+.cs-cta-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 14px 24px; text-decoration: none;
+  border-radius: 999px; border: 1px solid var(--line-2);
+  color: var(--ink);
+  transition: all 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  margin-left: 8px;
+}
+.cs-cta-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+/* SECTION */
+.cs-section { margin: 72px 0; }
+.cs-section-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--accent); letter-spacing: 0.22em;
+  text-transform: uppercase; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.cs-section-label::before {
+  content: ''; display: inline-block; width: 28px; height: 1px;
+  background: var(--accent);
+}
+.cs-h2 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(32px, 5vw, 56px); line-height: 1.02;
+  letter-spacing: -0.025em; margin-bottom: 28px;
+  max-width: 20ch;
+}
+.cs-h2 em { font-style: italic; color: var(--accent-2); font-weight: 500; }
+.cs-p {
+  font-size: 17px; color: var(--ink-dim);
+  line-height: 1.7; margin-bottom: 18px;
+  max-width: 68ch;
+}
+.cs-p strong { color: var(--ink); font-weight: 500; }
+.cs-p em { font-style: italic; color: var(--accent-2); }
+
+/* PULL QUOTE */
+.cs-quote {
+  font-family: var(--display); font-style: italic;
+  font-size: clamp(26px, 3.6vw, 38px); line-height: 1.25;
+  color: var(--ink); letter-spacing: -0.015em;
+  padding: 32px 0 32px 36px;
+  border-left: 2px solid var(--accent);
+  margin: 40px 0;
+  max-width: 30ch;
+}
+.cs-quote em { color: var(--accent-2); font-style: italic; }
+
+/* METRICS GRID */
+.cs-metrics {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  border-radius: 4px; overflow: hidden;
+  margin: 32px 0 48px;
+}
+.cs-metric { padding: 28px 24px; border-right: 1px solid var(--line); }
+.cs-metric:last-child { border-right: none; }
+.cs-metric-num {
+  font-family: var(--display); font-size: clamp(40px, 5vw, 64px);
+  line-height: 1; letter-spacing: -0.03em; color: var(--ink);
+  margin-bottom: 10px;
+}
+.cs-metric-num em { color: var(--accent); font-style: normal; font-size: 0.65em; margin-left: 2px; }
+.cs-metric-label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-faint); line-height: 1.5;
+}
+
+/* STACK */
+.cs-stack {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 0; border-top: 1px solid var(--line);
+}
+.cs-stack-row {
+  display: contents;
+}
+.cs-stack-row > * {
+  padding: 20px 0; border-bottom: 1px solid var(--line);
+}
+.cs-stack-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--accent); letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.cs-stack-val {
+  font-family: var(--body); font-size: 15px;
+  color: var(--ink-dim); line-height: 1.6;
+}
+.cs-stack-val strong { color: var(--ink); font-weight: 500; }
+
+/* LEARNINGS */
+.cs-learns { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px; }
+.cs-learn {
+  padding: 28px 26px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.cs-learn-num {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--accent); letter-spacing: 0.18em;
+  margin-bottom: 14px;
+}
+.cs-learn-h {
+  font-family: var(--display); font-size: 22px;
+  line-height: 1.2; letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.cs-learn-h em { font-style: italic; color: var(--accent-2); }
+.cs-learn-b {
+  font-size: 14.5px; color: var(--ink-dim); line-height: 1.6;
+}
+
+/* CTA block */
+.cs-final {
+  margin: 96px 0 0; padding: 48px 40px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-align: center;
+}
+.cs-final-h {
+  font-family: var(--display); font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.cs-final-h em { font-style: italic; color: var(--accent-2); }
+.cs-final-p { color: var(--ink-dim); font-size: 16px; margin-bottom: 24px; max-width: 48ch; margin-left: auto; margin-right: auto; }
+.cs-final-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER — minimal on case study */
+footer {
+  position: relative; z-index: 2;
+  padding: 48px 32px 32px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-faint);
+}
+.foot-row {
+  max-width: 980px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; flex-wrap: wrap;
+}
+.foot-row a { color: var(--ink-dim); text-decoration: none; letter-spacing: 0.08em; }
+.foot-row a:hover { color: var(--accent); }
+.foot-love-line { display: inline-flex; align-items: center; gap: 8px; }
+.foot-love-line svg { width: 11px; height: 11px; color: var(--accent); animation: hb 1.8s infinite; }
+@keyframes hb { 0%, 55%, 100% { transform: scale(1); } 12% { transform: scale(1.28); } 28% { transform: scale(1); } 42% { transform: scale(1.18); } }
+
+@media (max-width: 720px) {
+  main { padding: 120px 20px 60px; }
+  .cs-meta { grid-template-columns: 1fr 1fr; }
+  .cs-metrics { grid-template-columns: 1fr; }
+  .cs-metric { border-right: none; border-bottom: 1px solid var(--line); }
+  .cs-metric:last-child { border-bottom: none; }
+  .cs-stack { grid-template-columns: 1fr; }
+  .cs-stack-label { padding-bottom: 4px; border-bottom: none; }
+  .cs-stack-val { padding-top: 4px; }
+  .cs-learns { grid-template-columns: 1fr; }
+  .cs-final { padding: 36px 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="cursorSpotlight" aria-hidden="true"></canvas>
+
+<nav>
+  <a href="/" class="nav-logo">RAHUL.BABU</a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Work</a>
+    <a href="/for-recruiters" class="nav-link">For Recruiters</a>
+    <a href="/for-investors" class="nav-link">For Investors</a>
+    <a href="/build-together" class="nav-link">Build With Me</a>
+  </div>
+</nav>
+
+<main>
+
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/">Work</a>
+    <span class="crumb-sep">/</span>
+    <span>Case Studies</span>
+    <span class="crumb-sep">/</span>
+    <span class="crumb-now">Laundroswipe</span>
+  </nav>
+
+  <header class="cs-hero">
+    <div class="cs-tag"><span class="cs-tag-dot"></span>Shipped · Operating · 600+ users</div>
+    <h1 class="cs-h1">Laundroswipe — the laundry marketplace <em>I actually shipped</em>.</h1>
+    <p class="cs-sub">
+      A two-sided marketplace built at <strong>VIT Chennai</strong> that connects students to
+      laundry vendors. <strong>600+ active users</strong>, operating live. Built solo over a
+      summer, then kept alive through three semester-end crunches. The real education
+      didn't come from the code — it came from the week the supply side broke.
+    </p>
+
+    <div class="cs-meta">
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">Users</div>
+        <div class="cs-meta-val">600<em>+</em></div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">Role</div>
+        <div class="cs-meta-val">Solo founder</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">Status</div>
+        <div class="cs-meta-val">Operating</div>
+      </div>
+      <div class="cs-meta-cell">
+        <div class="cs-meta-label">Stack</div>
+        <div class="cs-meta-val">Next.js · Supabase</div>
+      </div>
+    </div>
+
+    <a href="https://laundroswipe.com" target="_blank" rel="noopener" class="cs-cta">See it live</a>
+    <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener" class="cs-cta-ghost">Ask me anything ↗</a>
+  </header>
+
+  <section class="cs-section">
+    <div class="cs-section-label">01 · The problem</div>
+    <h2 class="cs-h2">Students had laundry. Vendors had <em>idle machines</em>. The gap was trust.</h2>
+    <p class="cs-p">
+      VIT Chennai has thousands of residential students. The existing flow was a WhatsApp
+      mess — vendors texting in scribbled timings, students unsure whether their clothes
+      would survive, prices quoted ad-hoc. <strong>No pickup windows. No status. No
+      receipts.</strong> The result: half the student body washed clothes in a sink.
+    </p>
+    <p class="cs-p">
+      On the vendor side, the problem was different. Machines sat idle for six hours a day
+      because they had no way to announce availability. The demand was there — they just
+      couldn't see it. <strong>Both sides wanted the same thing: a predictable handshake.</strong>
+    </p>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-section-label">02 · The build</div>
+    <h2 class="cs-h2">A marketplace that did <em>one handshake</em> really well.</h2>
+    <p class="cs-p">
+      I shipped the narrowest possible v1: students see vendors with open pickup slots,
+      tap to book, vendor confirms, done. No ratings, no chat, no in-app payment. The
+      handshake was the only atom.
+    </p>
+    <p class="cs-p">
+      The first 30 vendors got onboarded door-to-door, in person, because cold signups
+      didn't convert. Students came in via posters taped to hostel doors and a referral
+      loop that rewarded <strong>supply-side invites more than demand-side ones</strong> —
+      because every new vendor created capacity for 20 students, but every new student
+      only created demand for one vendor.
+    </p>
+
+    <div class="cs-quote">
+      "Every new <em>vendor</em> created capacity for 20 students. Every new <em>student</em> created demand for one vendor. The asymmetry is everything."
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-section-label">03 · Where it landed</div>
+    <h2 class="cs-h2">Numbers, unvarnished.</h2>
+    <div class="cs-metrics">
+      <div class="cs-metric">
+        <div class="cs-metric-num">600<em>+</em></div>
+        <div class="cs-metric-label">Active users<br>across two semesters</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">47.2<em>%</em></div>
+        <div class="cs-metric-label">Week-4 retention<br>on students who booked at least once</div>
+      </div>
+      <div class="cs-metric">
+        <div class="cs-metric-num">~18<em>h</em></div>
+        <div class="cs-metric-label">From pickup booked<br>to clothes delivered back</div>
+      </div>
+    </div>
+    <p class="cs-p">
+      The launch week was not smooth. Three vendors dropped out before the first
+      weekend because I'd forgotten that washing machines at hostel accommodation
+      shut off at 10 PM — my booking UI let students pick 11 PM slots. One stayed up
+      fixing it live. The vendors who came back the next Monday still work with
+      Laundroswipe today.
+    </p>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-section-label">04 · Stack</div>
+    <h2 class="cs-h2">Boring infra, chosen on purpose.</h2>
+    <div class="cs-stack">
+      <div class="cs-stack-row">
+        <div class="cs-stack-label">Frontend</div>
+        <div class="cs-stack-val"><strong>Next.js 14</strong> App Router · React · TypeScript · Tailwind</div>
+      </div>
+      <div class="cs-stack-row">
+        <div class="cs-stack-label">Backend</div>
+        <div class="cs-stack-val"><strong>Supabase</strong> Postgres with RLS · Auth · Realtime subscriptions for vendor-side availability pings</div>
+      </div>
+      <div class="cs-stack-row">
+        <div class="cs-stack-label">Hosting</div>
+        <div class="cs-stack-val"><strong>Vercel</strong> for the app · <strong>Cloudflare</strong> DNS and WAF in front</div>
+      </div>
+      <div class="cs-stack-row">
+        <div class="cs-stack-label">Payments</div>
+        <div class="cs-stack-val">Razorpay UPI, later replaced with cash-on-delivery because student bank accounts declined UPI mandates inconsistently</div>
+      </div>
+      <div class="cs-stack-row">
+        <div class="cs-stack-label">Ops</div>
+        <div class="cs-stack-val">WhatsApp Business API for vendor confirmations · Notion for vendor onboarding</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div class="cs-section-label">05 · What it taught me</div>
+    <h2 class="cs-h2">Five things I'd tell the me of <em>July last year</em>.</h2>
+    <div class="cs-learns">
+      <div class="cs-learn">
+        <div class="cs-learn-num">01</div>
+        <div class="cs-learn-h">Supply-side liquidity <em>beats</em> demand-side polish.</div>
+        <div class="cs-learn-b">I spent two weeks on a beautiful student-facing onboarding animation. Meanwhile only six vendors were live, so 80% of student searches returned nothing. The animation didn't matter. The sixth vendor did.</div>
+      </div>
+      <div class="cs-learn">
+        <div class="cs-learn-num">02</div>
+        <div class="cs-learn-h">Ship the <em>narrowest</em> thing that proves the handshake.</div>
+        <div class="cs-learn-b">I almost shipped ratings, chat, and loyalty points in v1. The only thing that mattered was: does a student booking actually result in clean clothes? Everything else was a distraction until that one thing was rock-solid.</div>
+      </div>
+      <div class="cs-learn">
+        <div class="cs-learn-num">03</div>
+        <div class="cs-learn-h">Onboard supply <em>in person</em>, demand with posters.</div>
+        <div class="cs-learn-b">Cold Google Form signups converted at under 5%. Knocking on vendor doors converted at 62%. Trust is cheaper to build face-to-face; scale comes later.</div>
+      </div>
+      <div class="cs-learn">
+        <div class="cs-learn-num">04</div>
+        <div class="cs-learn-h">Cash-on-delivery <em>isn't a failure</em>.</div>
+        <div class="cs-learn-b">UPI failed 12% of the time. Cash failed 0%. I'd rather have a clunky-but-working payment flow than a clean UI on a broken transaction. Payment shame is real — ignore it and fix what actually breaks.</div>
+      </div>
+      <div class="cs-learn">
+        <div class="cs-learn-num">05</div>
+        <div class="cs-learn-h">The real metric was <em>vendor Monday retention</em>.</div>
+        <div class="cs-learn-b">Users coming back mattered less than vendors coming back. If the vendor didn't relist on Monday, the whole weekend's demand died. I didn't instrument this until week 8 and lost three vendors before I did.</div>
+      </div>
+      <div class="cs-learn">
+        <div class="cs-learn-num">06</div>
+        <div class="cs-learn-h">Your <em>launch week</em> will break. Be on WhatsApp, not in a dashboard.</div>
+        <div class="cs-learn-b">I rewrote the booking UI at 2 AM on day three because of the 10 PM cutoff bug. If I'd been analysing Mixpanel charts I would have missed it. When you've got 20 users, you talk to them. Dashboards are for when you have 2,000.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-final">
+    <h3 class="cs-final-h">Building something with <em>real users</em>?</h3>
+    <p class="cs-final-p">If Laundroswipe's playbook could apply to what you're shipping, say hi. 15 minutes, zero pitch.</p>
+    <div class="cs-final-ctas">
+      <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener" class="cs-cta">Book 15 min on Cal.com</a>
+      <a href="mailto:rahulbabuk05@gmail.com?subject=Laundroswipe%20chat" class="cs-cta-ghost">Or just email me ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-row">
+    <div class="foot-love-line">
+      <span>Created with</span>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><title>heart</title><path d="M12 21s-7.5-4.5-9.5-10.2C1.1 7.1 3.7 4 7 4c1.9 0 3.6 1 4.5 2.5h1C13.4 5 15.1 4 17 4c3.3 0 5.9 3.1 4.5 6.8C19.5 16.5 12 21 12 21z"/></svg>
+      <span>by <a href="/">Rahul Babu K</a></span>
+    </div>
+    <div>
+      <a href="/smart-mirror" style="margin-right:18px;">← Smart Mirror</a>
+      <a href="/lexai">LexAI →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const canvas = document.getElementById('cursorSpotlight');
+  if (!canvas) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.remove(); return; }
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, DPR = 1;
+  const target = { x: -9999, y: -9999 }, pos = { x: -9999, y: -9999 };
+  let rafId = null, fading = false, alpha = 0;
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  resize();
+  addEventListener('resize', resize, { passive: true });
+  function setTarget(x, y) { target.x = x; target.y = y; fading = false; if (!rafId) rafId = requestAnimationFrame(loop); }
+  addEventListener('pointermove', (e) => setTarget(e.clientX, e.clientY), { passive: true });
+  addEventListener('touchmove', (e) => { const t = e.touches[0]; if (t) setTarget(t.clientX, t.clientY); }, { passive: true });
+  addEventListener('pointerup', () => { fading = true; });
+  addEventListener('touchend', () => { fading = true; });
+  addEventListener('pointerleave', () => { fading = true; });
+  const GRID = 42, INFLUENCE = 220;
+  function loop() {
+    alpha += ((fading ? 0 : 1) - alpha) * 0.08;
+    pos.x += (target.x - pos.x) * 0.12;
+    pos.y += (target.y - pos.y) * 0.12;
+    ctx.clearRect(0, 0, W, H);
+    if (alpha > 0.01) {
+      const a = alpha;
+      const pool = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 320);
+      pool.addColorStop(0, `rgba(217, 68, 20, ${0.12 * a})`);
+      pool.addColorStop(0.5, `rgba(162, 99, 31, ${0.05 * a})`);
+      pool.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = pool; ctx.fillRect(0, 0, W, H);
+      const minX = Math.max(0, pos.x - INFLUENCE - GRID);
+      const maxX = Math.min(W, pos.x + INFLUENCE + GRID);
+      const minY = Math.max(0, pos.y - INFLUENCE - GRID);
+      const maxY = Math.min(H, pos.y + INFLUENCE + GRID);
+      for (let gx = Math.floor(minX / GRID) * GRID; gx < maxX; gx += GRID) {
+        for (let gy = Math.floor(minY / GRID) * GRID; gy < maxY; gy += GRID) {
+          const dx = gx - pos.x, dy = gy - pos.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d > INFLUENCE) continue;
+          const t = 1 - d / INFLUENCE;
+          const lean = t * t * 14;
+          const lx = gx - (dx / (d || 1)) * lean;
+          const ly = gy - (dy / (d || 1)) * lean;
+          ctx.fillStyle = `rgba(11, 11, 11, ${(0.08 + t * 0.35) * a})`;
+          ctx.beginPath();
+          ctx.arc(lx, ly, 1 + t * 1.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+    if (alpha < 0.01 && fading) { rafId = null; return; }
+    rafId = requestAnimationFrame(loop);
+  }
+})();
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
