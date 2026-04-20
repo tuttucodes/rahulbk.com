@@ -290,17 +290,49 @@ multiple surfaces at once.
 - [webmaster.yandex.com](https://webmaster.yandex.com) → add site → verify via the
   `yandex-verification` meta tag already placeholdered.
 
-## 4. IndexNow (Bing, Yandex, Naver — instant indexing)
+## 4. IndexNow (Bing, Yandex, Naver, Seznam, Yep — instant indexing)
 
-Bing honours [IndexNow](https://www.indexnow.org), a push-based indexing protocol.
-When you publish new content, ping:
+This repo already implements [IndexNow](https://www.indexnow.org).
+
+- **Key**: `8b9d62373913e61f567f866065f68f33bd98f7d9600627b4`
+- **Key location**: [`public/8b9d62373913e61f567f866065f68f33bd98f7d9600627b4.txt`](public/8b9d62373913e61f567f866065f68f33bd98f7d9600627b4.txt)
+  — served at `https://rahulbk.com/8b9d62373913e61f567f866065f68f33bd98f7d9600627b4.txt`
+- **Safe to commit**: yes. The key is public by protocol design — anyone visiting the key URL sees it. The only "risk" from an attacker is they can submit your own URLs to IndexNow using your key, which just re-indexes your own content.
+- **Submit script**: [`scripts/indexnow-submit.mjs`](scripts/indexnow-submit.mjs)
+
+Every URL in `public/sitemap.xml` is POSTed as a single batch to
+`https://api.indexnow.org/indexnow`. One request covers Bing, Yandex, Naver,
+Seznam, and Yep simultaneously.
+
+Push-to-index after a content change:
 
 ```bash
-curl "https://api.indexnow.org/indexnow?url=https://yourdomain.com/&key=YOUR_INDEXNOW_KEY"
+npm run submit
 ```
 
-Generate the key by placing a text file at `public/<random-hash>.txt` containing that
-same hash, then pass it as the `key` query param. Bing picks up new URLs within hours.
+Output:
+
+```
+✓ Key file verified at https://rahulbk.com/903491c05a8964bdf6929cf46eb48ba1.txt
+→ Submitting 4 URLs to IndexNow
+  · https://rahulbk.com/
+  · https://rahulbk.com/for-recruiters
+  · https://rahulbk.com/for-investors
+  · https://rahulbk.com/build-together
+← 200 OK — crawlers queued
+```
+
+**Override via env vars** if you fork this repo:
+
+```bash
+INDEXNOW_HOST=yourdomain.com \
+INDEXNOW_KEY=your-hex-key \
+INDEXNOW_KEY_LOCATION=https://yourdomain.com/your-hex-key.txt \
+npm run submit
+```
+
+Rotate the key by generating a new hex string (`node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`), renaming the
+`.txt` file to match, and updating the default in `scripts/indexnow-submit.mjs`.
 
 ## 5. AI answer engines — AEO / GEO
 
@@ -369,8 +401,15 @@ and message ~* '(crypto|bitcoin|seo expert|guest post)';
 
 # License
 
-UNLICENSED. Source is public so you can poke around and learn from it. Please don't
-scrape the content or re-use the design wholesale — if you like something, ask.
+**Dual licensed.**
+
+- **Code** — [MIT](LICENSE). Fork, learn, copy, commercialise. All the usual rights.
+- **Content, design, photography** — [CC BY-NC 4.0](LICENSE-CONTENT). You can share
+  and adapt with attribution; you can't use it commercially without asking.
+
+In plain English: take the code and build your own thing. Just don't lift the
+written copy, the visual identity, or the photographs into something you sell.
+For commercial use of content/design, email `rahulbabuk05@gmail.com`.
 
 # Who
 

@@ -1232,13 +1232,105 @@ h2 em { font-style: italic; color: var(--accent-2); font-weight: 500; }
 .easter-repo::before { content: '↗ '; color: var(--accent); }
 .easter-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; justify-content: center; }
 
-/* FOOTER */
+/* FOOTER — mega wordmark (lanes.gg energy) */
 footer {
-  padding: 36px 32px;
+  position: relative; z-index: 2;
+  padding: 96px 32px 28px;
   border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, transparent 0%, rgba(11, 11, 11, 0.02) 100%);
+  overflow: hidden;
+  font-family: var(--mono);
+  color: var(--ink-dim);
+}
+.foot-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 72px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; align-items: start; }
+.foot-lead-head {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+.foot-lead-head::before { content:''; display:inline-block; width:24px; height:1px; background:var(--accent); vertical-align:middle; margin-right:12px; }
+.foot-lead-h {
+  font-family: var(--display); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.05;
+  letter-spacing: -0.02em; font-weight: 400; color: var(--ink);
+  margin-bottom: 24px; max-width: 18ch;
+}
+.foot-lead-h em { font-style: italic; color: var(--accent-2); }
+.foot-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 14px 22px;
+  background: var(--accent); color: #fff;
+  text-decoration: none; border-radius: 999px;
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), background 0.2s;
+  border: 1px solid var(--accent);
+}
+.foot-cta:hover { transform: translateY(-2px); background: #0b0b0b; border-color: #0b0b0b; }
+.foot-cta::after { content: '↗'; font-size: 13px; }
+.foot-col-head {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-faint);
+  margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+}
+.foot-col-head::before { content:''; width:14px; height:1px; background:var(--line-2); display:inline-block; }
+.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.foot-col a {
+  font-family: var(--display); font-size: 18px; color: var(--ink);
+  text-decoration: none; letter-spacing: -0.005em; line-height: 1.25;
+  padding-bottom: 2px; transition: color 0.2s, transform 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+  display: inline-block;
+}
+.foot-col a:hover { color: var(--accent); transform: translateX(3px); }
+.foot-col a[href^="tel:"], .foot-col a[href^="mailto:"] {
+  font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em;
+}
+.foot-mark {
+  font-family: var(--display); font-size: clamp(88px, 22vw, 260px);
+  line-height: 0.82; letter-spacing: -0.055em; font-weight: 400;
+  color: var(--ink); margin: 28px 0 10px;
+  user-select: none; overflow: hidden; white-space: nowrap;
+}
+.foot-mark em { font-style: italic; color: var(--accent); font-weight: 400; }
+.foot-mark-sub {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-faint);
   display: flex; justify-content: space-between; align-items: center;
-  font-family: var(--mono); font-size: 11px;
-  color: var(--ink-faint); letter-spacing: 0.08em;
+  gap: 24px; padding-top: 20px; border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.foot-love { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-dim); }
+.foot-love svg {
+  width: 12px; height: 12px; color: var(--accent);
+  animation: footHeartbeat 1.8s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  transform-origin: center;
+}
+@keyframes footHeartbeat {
+  0%, 55%, 100% { transform: scale(1); }
+  12% { transform: scale(1.28); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.18); }
+}
+.foot-love strong { font-weight: 500; color: var(--ink); letter-spacing: 0.06em; }
+.foot-love a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-2); padding-bottom: 1px; }
+.foot-love a:hover { color: var(--accent); border-color: var(--accent); }
+.foot-meta-links { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+.foot-meta-links a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+.foot-meta-links a:hover { color: var(--accent); }
+.foot-konami { color: var(--ink-faint); cursor: help; letter-spacing: 0.2em; }
+.foot-konami::before { content: '◉ '; color: var(--accent); }
+@media (max-width: 900px) {
+  footer { padding: 72px 24px 24px; }
+  .foot-inner { gap: 56px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .foot-lead-h { max-width: none; font-size: clamp(24px, 6vw, 34px); }
+}
+@media (max-width: 560px) {
+  footer { padding: 56px 20px 20px; }
+  .foot-inner { gap: 44px; }
+  .foot-grid { grid-template-columns: 1fr; gap: 36px; }
+  .foot-mark { font-size: clamp(56px, 18vw, 120px); letter-spacing: -0.04em; }
+  .foot-mark-sub { font-size: 10px; gap: 14px; }
+  .foot-meta-links { gap: 14px; }
+  .foot-col a { font-size: 16px; }
 }
 
 /* FOR RECRUITERS — optimized for 15-second screens */
@@ -2210,10 +2302,58 @@ footer {
 </section>
 
 <footer>
-  <div>© 2026 · RAHUL BABU · BUILT BY ME.</div>
-  <div>
-    <a href="/build-together.html" style="color:var(--ink-faint);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;margin-right:20px;letter-spacing:0.08em;">TRY THE AI-POWERED BUILD PLANNER ↗</a>
-    <span style="color:var(--ink-faint);letter-spacing:0.08em;">TRY THE KONAMI CODE ↗</span>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-col foot-lead">
+        <div class="foot-lead-head">Let's build something that matters</div>
+        <h3 class="foot-lead-h">Direct access to managing partners. I <em>move fast</em>.</h3>
+        <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener" class="foot-cta">Book a 20-min LexAI intro</a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-head">Visit</div>
+        <ul>
+          <li><a href="/">Work</a></li>
+          <li><a href="/for-recruiters">For Recruiters</a></li>
+          <li><a href="/for-investors">For Investors</a></li>
+          <li><a href="/build-together">Build With Me</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-head">Reach</div>
+        <ul>
+          <li><a href="mailto:rahulbabuk05@gmail.com?subject=LexAI%20Intro">rahulbabuk05@gmail.com</a></li>
+          <li><a href="tel:+919074417293">+91 90744 17293</a></li>
+          <li><a href="https://cal.com/rahulbabu" target="_blank" rel="noopener">cal.com/rahulbabu ↗</a></li>
+          <li><a href="https://github.com/tuttucodes" target="_blank" rel="noopener">github.com/tuttucodes ↗</a></li>
+          <li><a href="https://linkedin.com/in/rahulbabuk" target="_blank" rel="noopener">linkedin.com/in/rahulbabuk ↗</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-head">Elsewhere</div>
+        <ul>
+          <li><a href="https://laundroswipe.com" target="_blank" rel="noopener">Laundroswipe ↗</a></li>
+          <li><a href="/build-together">AI Build Planner</a></li>
+          <li><a href="https://github.com/tuttucodes/rahulbk.com" target="_blank" rel="noopener">Source code ↗</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
+          <li><a href="/sitemap.xml">sitemap.xml</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-mark" aria-hidden="true">Rahul&nbsp;<em>Babu&nbsp;K</em>.</div>
+    <div class="foot-mark-sub">
+      <div class="foot-love">
+        <span>Created with</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" role="img"><title>heart</title><path d="M12 21s-7.5-4.5-9.5-10.2C1.1 7.1 3.7 4 7 4c1.9 0 3.6 1 4.5 2.5h1C13.4 5 15.1 4 17 4c3.3 0 5.9 3.1 4.5 6.8C19.5 16.5 12 21 12 21z"/></svg>
+        <span>by <strong><a href="https://rahulbk.com">Rahul Babu K</a></strong></span>
+      </div>
+      <div class="foot-meta-links">
+        <a href="https://github.com/tuttucodes/rahulbk.com" target="_blank" rel="noopener">Source ↗</a>
+        <a href="LICENSE" target="_blank">MIT (code)</a>
+        <a href="LICENSE-CONTENT" target="_blank">CC BY-NC (content)</a>
+        <span class="foot-konami">Konami code unlocks it</span>
+        <span>© 2026</span>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -2651,16 +2791,15 @@ document.addEventListener('keydown', (e) => {
   loop();
 })();
 
-/* CURSOR SPOTLIGHT */
+/* CURSOR SPOTLIGHT — mouse + touch */
 (function () {
   const canvas = document.getElementById('cursorSpotlight');
   if (!canvas) return;
-  if (matchMedia('(hover: none)').matches) { canvas.remove(); return; }
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.remove(); return; }
   const ctx = canvas.getContext('2d');
   let W = 0, H = 0, DPR = 1;
   const target = { x: -9999, y: -9999 }, pos = { x: -9999, y: -9999 };
-  let rafId = null;
+  let rafId = null, fading = false, alpha = 0;
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
     W = innerWidth; H = innerHeight;
@@ -2670,59 +2809,110 @@ document.addEventListener('keydown', (e) => {
   }
   resize();
   addEventListener('resize', resize, { passive: true });
-  addEventListener('pointermove', (e) => {
-    target.x = e.clientX; target.y = e.clientY;
-    if (!rafId) rafId = requestAnimationFrame(loop);
-  }, { passive: true });
-  addEventListener('pointerleave', () => { target.x = -9999; target.y = -9999; });
+  function setTarget(x, y) { target.x = x; target.y = y; fading = false; if (!rafId) rafId = requestAnimationFrame(loop); }
+  addEventListener('pointermove', (e) => setTarget(e.clientX, e.clientY), { passive: true });
+  addEventListener('touchmove', (e) => { const t = e.touches[0]; if (t) setTarget(t.clientX, t.clientY); }, { passive: true });
+  addEventListener('pointerup', () => { fading = true; });
+  addEventListener('touchend', () => { fading = true; });
+  addEventListener('touchcancel', () => { fading = true; });
+  addEventListener('pointerleave', () => { fading = true; });
   const GRID = 42, INFLUENCE = 220;
   function loop() {
+    alpha += ((fading ? 0 : 1) - alpha) * 0.08;
     pos.x += (target.x - pos.x) * 0.12;
     pos.y += (target.y - pos.y) * 0.12;
     ctx.clearRect(0, 0, W, H);
-    const pool = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 320);
-    pool.addColorStop(0, 'rgba(217, 68, 20, 0.12)');
-    pool.addColorStop(0.5, 'rgba(162, 99, 31, 0.05)');
-    pool.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    ctx.fillStyle = pool; ctx.fillRect(0, 0, W, H);
-    const minX = Math.max(0, pos.x - INFLUENCE - GRID);
-    const maxX = Math.min(W, pos.x + INFLUENCE + GRID);
-    const minY = Math.max(0, pos.y - INFLUENCE - GRID);
-    const maxY = Math.min(H, pos.y + INFLUENCE + GRID);
-    for (let gx = Math.floor(minX / GRID) * GRID; gx < maxX; gx += GRID) {
-      for (let gy = Math.floor(minY / GRID) * GRID; gy < maxY; gy += GRID) {
-        const dx = gx - pos.x, dy = gy - pos.y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d > INFLUENCE) continue;
-        const t = 1 - d / INFLUENCE;
-        const lean = t * t * 14;
-        const lx = gx - (dx / (d || 1)) * lean;
-        const ly = gy - (dy / (d || 1)) * lean;
-        ctx.fillStyle = `rgba(11, 11, 11, ${0.08 + t * 0.35})`;
-        ctx.beginPath();
-        ctx.arc(lx, ly, 1 + t * 1.4, 0, Math.PI * 2);
-        ctx.fill();
+    if (alpha > 0.01) {
+      const a = alpha;
+      const pool = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 320);
+      pool.addColorStop(0, `rgba(217, 68, 20, ${0.12 * a})`);
+      pool.addColorStop(0.5, `rgba(162, 99, 31, ${0.05 * a})`);
+      pool.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = pool; ctx.fillRect(0, 0, W, H);
+      const minX = Math.max(0, pos.x - INFLUENCE - GRID);
+      const maxX = Math.min(W, pos.x + INFLUENCE + GRID);
+      const minY = Math.max(0, pos.y - INFLUENCE - GRID);
+      const maxY = Math.min(H, pos.y + INFLUENCE + GRID);
+      for (let gx = Math.floor(minX / GRID) * GRID; gx < maxX; gx += GRID) {
+        for (let gy = Math.floor(minY / GRID) * GRID; gy < maxY; gy += GRID) {
+          const dx = gx - pos.x, dy = gy - pos.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d > INFLUENCE) continue;
+          const t = 1 - d / INFLUENCE;
+          const lean = t * t * 14;
+          const lx = gx - (dx / (d || 1)) * lean;
+          const ly = gy - (dy / (d || 1)) * lean;
+          ctx.fillStyle = `rgba(11, 11, 11, ${(0.08 + t * 0.35) * a})`;
+          ctx.beginPath();
+          ctx.arc(lx, ly, 1 + t * 1.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
     }
+    if (alpha < 0.01 && fading) { rafId = null; return; }
     rafId = requestAnimationFrame(loop);
   }
 })();
 
-/* HERO PORTRAIT TILT */
+/* HERO PORTRAIT — pointer + gyro + scroll parallax */
 (function () {
   const wrap = document.querySelector('.hero-portrait');
-  if (!wrap || matchMedia('(hover: none)').matches) return;
+  if (!wrap) return;
   const frame = wrap.querySelector('.hero-portrait-frame');
   if (!frame) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tilt = { x: 0, y: 0, parallax: 0 };
+  const targets = { pointerX: 0, pointerY: 0, gyroX: 0, gyroY: 0, hasPointer: false };
+  let rafId = null;
+  function schedule() { if (!rafId) rafId = requestAnimationFrame(tick); }
+  function tick() {
+    rafId = null;
+    const tx = targets.hasPointer ? targets.pointerX : targets.gyroX;
+    const ty = targets.hasPointer ? targets.pointerY : targets.gyroY;
+    tilt.x += (tx - tilt.x) * 0.12;
+    tilt.y += (ty - tilt.y) * 0.12;
+    const rotX = -tilt.y * (reduced ? 0 : 6);
+    const rotY = tilt.x * (reduced ? 0 : 8);
+    frame.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate3d(0, ${tilt.parallax}px, 0)`;
+    if (Math.abs(tx - tilt.x) > 0.001 || Math.abs(ty - tilt.y) > 0.001) schedule();
+  }
   wrap.addEventListener('pointermove', (e) => {
     const r = frame.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    frame.style.transform = `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 8}deg) translateZ(0)`;
+    targets.pointerX = (e.clientX - r.left) / r.width - 0.5;
+    targets.pointerY = (e.clientY - r.top) / r.height - 0.5;
+    targets.hasPointer = true;
+    schedule();
   });
-  wrap.addEventListener('pointerleave', () => {
-    frame.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
-  });
+  const reset = () => { targets.hasPointer = false; targets.pointerX = 0; targets.pointerY = 0; schedule(); };
+  wrap.addEventListener('pointerleave', reset);
+  wrap.addEventListener('touchend', reset);
+  wrap.addEventListener('touchcancel', reset);
+  function onOrientation(e) {
+    if (targets.hasPointer) return;
+    targets.gyroX = Math.max(-30, Math.min(30, e.gamma || 0)) / 60;
+    targets.gyroY = Math.max(-30, Math.min(30, (e.beta || 0) - 20)) / 60;
+    schedule();
+  }
+  if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+    const once = () => {
+      DeviceOrientationEvent.requestPermission().then((s) => { if (s === 'granted') addEventListener('deviceorientation', onOrientation, { passive: true }); }).catch(() => {});
+      document.removeEventListener('click', once);
+      document.removeEventListener('touchend', once);
+    };
+    document.addEventListener('click', once, { once: true });
+    document.addEventListener('touchend', once, { once: true });
+  } else if ('DeviceOrientationEvent' in window) {
+    addEventListener('deviceorientation', onOrientation, { passive: true });
+  }
+  let lastScroll = -1;
+  addEventListener('scroll', () => {
+    if (lastScroll === scrollY) return;
+    lastScroll = scrollY;
+    const r = wrap.getBoundingClientRect();
+    const progress = 1 - (r.top + r.height / 2) / innerHeight;
+    tilt.parallax = Math.max(-40, Math.min(40, progress * -30)) * (reduced ? 0 : 1);
+    schedule();
+  }, { passive: true });
 })();
 </script>
 

@@ -8,7 +8,9 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "node scripts/build-og.mjs"
+    "build": "node scripts/build-og.mjs",
+    "submit": "node scripts/indexnow-submit.mjs",
+    "postdeploy": "node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0"
@@ -17,6 +19,6 @@
     "sharp": "^0.33.5"
   },
   "author": "Rahul Babu <rahulbabuk05@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://rahulbk.com"
 }
