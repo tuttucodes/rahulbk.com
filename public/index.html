@@ -46,8 +46,8 @@
 <meta name="twitter:description" content="19-year-old builder. Patent-published AI inventor. Founder of Laundroswipe (600+ users). Harvard HPAIR delegate.">
 <meta name="twitter:image" content="https://rahulbk.com/og.png">
 <meta name="twitter:image:alt" content="Rahul Babu — Builder · Patent-published AI Inventor">
-<meta name="twitter:creator" content="@tuttucodes">
-<meta name="twitter:site" content="@tuttucodes">
+<meta name="twitter:creator" content="@itsrahubk">
+<meta name="twitter:site" content="@itsrahubk">
 
 <!-- STRUCTURED DATA — Person schema for Google Knowledge Panel + AI answer engines -->
 <script type="application/ld+json">
@@ -113,6 +113,8 @@
   "sameAs": [
     "https://linkedin.com/in/rahulbabuk",
     "https://github.com/tuttucodes",
+    "https://x.com/itsrahubk",
+    "https://instagram.com/rahvlbk",
     "https://cal.com/rahulbabu"
   ],
   "contactPoint": [{
@@ -1134,6 +1136,28 @@ h2 em { font-style: italic; color: var(--accent-2); font-weight: 500; }
   transform: translateY(-2px);
 }
 .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-mailto {
+  display: block;
+  margin-top: 14px;
+  padding: 14px 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.form-mailto:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.form-mailto[hidden] { display: none; }
 .form-status {
   font-family: var(--mono);
   font-size: 11px;
@@ -2235,6 +2259,8 @@ footer {
   <div class="contact-links">
     <a href="https://linkedin.com/in/rahulbabuk" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a href="https://github.com/tuttucodes" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://x.com/itsrahubk" target="_blank" rel="noopener">X / Twitter ↗</a>
+    <a href="https://instagram.com/rahvlbk" target="_blank" rel="noopener">Instagram ↗</a>
     <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener">Cal.com ↗</a>
     <a href="tel:+919074417293">+91 90744 17293 ↗</a>
   </div>
@@ -2269,6 +2295,8 @@ footer {
       <div class="form-status" id="cf-status">End-to-end encrypted in transit · Stored in Supabase · I read every one.</div>
       <button type="submit" class="form-submit" id="cf-submit">Send message →</button>
     </div>
+    <!-- Fallback: if the server is unreachable, open the visitor's own mail client with a pre-filled draft -->
+    <a href="#" id="cf-mailto" class="form-mailto" hidden rel="noopener">Send to my email right now ↗</a>
     <div class="form-hint">Prefer a call? <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener" style="color:var(--accent);">Book 15 minutes on Cal.com</a> — zero pitch, straight to the problem.</div>
   </form>
 </section>
@@ -2301,6 +2329,8 @@ footer {
           <li><a href="https://cal.com/rahulbabu" target="_blank" rel="noopener">cal.com/rahulbabu ↗</a></li>
           <li><a href="https://github.com/tuttucodes" target="_blank" rel="noopener">github.com/tuttucodes ↗</a></li>
           <li><a href="https://linkedin.com/in/rahulbabuk" target="_blank" rel="noopener">linkedin.com/in/rahulbabuk ↗</a></li>
+          <li><a href="https://x.com/itsrahubk" target="_blank" rel="noopener">x.com/itsrahubk ↗</a></li>
+          <li><a href="https://instagram.com/rahvlbk" target="_blank" rel="noopener">instagram.com/rahvlbk ↗</a></li>
         </ul>
       </div>
 
@@ -2555,15 +2585,47 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   if (!form) return;
   const statusEl = document.getElementById('cf-status');
   const submitBtn = document.getElementById('cf-submit');
+  const mailtoBtn = document.getElementById('cf-mailto');
   const defaultStatus = statusEl.textContent;
+  const CONTACT_EMAIL = 'rahulbabuk05@gmail.com';
 
   function setStatus(msg, kind) {
     statusEl.textContent = msg;
     statusEl.className = 'form-status' + (kind ? ' ' + kind : '');
   }
 
+  function buildMailto(p) {
+    const subject = `Inbox from rahulbk.com — ${p.name}${p.company ? ' · ' + p.company : ''}`;
+    const bodyLines = [
+      p.message,
+      '',
+      '—',
+      `Name:    ${p.name}`,
+      `Email:   ${p.email}`,
+    ];
+    if (p.company) bodyLines.push(`Company: ${p.company}`);
+    bodyLines.push(`Source:  rahulbk.com contact form (fallback)`);
+    const body = bodyLines.join('\n');
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function hideMailto() {
+    if (!mailtoBtn) return;
+    mailtoBtn.hidden = true;
+    mailtoBtn.removeAttribute('href');
+  }
+  function showMailto(p) {
+    if (!mailtoBtn) return;
+    mailtoBtn.href = buildMailto(p);
+    mailtoBtn.hidden = false;
+  }
+
+  // Any edit to the form re-hides the fallback (so a retry starts clean)
+  form.addEventListener('input', hideMailto);
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    hideMailto();
     const fd = new FormData(form);
     const payload = {
       name: (fd.get('name') || '').toString().trim(),
@@ -2600,7 +2662,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       form.reset();
     } catch (err) {
       console.error(err);
-      setStatus('⚠ Couldn\'t send right now. Email rahulbabuk05@gmail.com directly.', 'err');
+      setStatus('⚠ Couldn\'t reach the server. Try again or send it straight to my inbox below.', 'err');
+      showMailto(payload);
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalBtn;
