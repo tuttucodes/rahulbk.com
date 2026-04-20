@@ -10,26 +10,28 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0f0e0c; --bg-2: #17150f;
-  --ink: #f5f0e6; --ink-dim: #a09688; --ink-faint: #6b6458;
-  --accent: #ff5b1f; --accent-2: #d4a056;
-  --line: #2a2520;
-  --display: 'Fraunces', 'Times New Roman', serif;
+  --bg: #f7f4ec; --bg-2: #ffffff;
+  --ink: #0b0b0b; --ink-dim: #4c4a46; --ink-faint: #8a857b;
+  --accent: #d94414; --accent-2: #a2631f;
+  --line: rgba(11, 11, 11, 0.08);
+  --display: 'Instrument Serif', 'Fraunces', 'Times New Roman', serif;
+  --body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   background: var(--bg); color: var(--ink);
-  font-family: var(--display);
+  font-family: var(--body);
   min-height: 100dvh;
   display: flex; align-items: center; justify-content: center;
   padding: 40px;
   background-image:
-    radial-gradient(ellipse at 20% 0%, rgba(255, 91, 31, 0.08), transparent 50%),
-    radial-gradient(ellipse at 80% 100%, rgba(212, 160, 86, 0.06), transparent 55%);
+    radial-gradient(ellipse 900px 500px at 12% -5%, rgba(217, 68, 20, 0.08), transparent 60%),
+    radial-gradient(ellipse 800px 520px at 92% 102%, rgba(162, 99, 31, 0.07), transparent 60%);
+  background-attachment: fixed;
 }
 main { max-width: 640px; }
 .tag {

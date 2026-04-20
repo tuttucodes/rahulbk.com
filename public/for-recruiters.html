@@ -6,16 +6,16 @@
 <meta name="theme-color" content="#f7f4ec">
 <meta name="color-scheme" content="light">
 
-<!-- PRIMARY SEO -->
-<title>Rahul Babu — Builder · Patent-published AI Inventor · Founder of Laundroswipe</title>
-<meta name="description" content="Rahul Babu — 19-year-old builder, patent-published AI inventor, founder of Laundroswipe (600+ users), Harvard HPAIR delegate, CFA L1 (Aug 2026). Dual study: CS at VIT + Data Science at IIT Madras. Shipping LLM, CV/IoT, and consumer products since age 8.">
-<meta name="keywords" content="Rahul Babu, Rahul Babu portfolio, Rahul Babu VIT, Rahul Babu IIT Madras, Rahul Babu Laundroswipe, Rahul Babu patent, Rahul Babu Harvard HPAIR, patent published AI engineer India, young founder India, CFA level 1 engineer, AI inventor student, Laundroswipe founder, Smart Mirror patent, Legal AI platform, YC applicant India, student builder, teen founder India">
+<!-- PRIMARY SEO — recruiters -->
+<title>Hire Rahul Babu — Applied AI Intern · Summer 2026 · Remote · Patent-published</title>
+<meta name="description" content="Rahul Babu is available for a Summer 2026 remote internship (May–August, 12+ weeks) in Applied AI and Product Engineering. Patent-published (Indian Patent 202641022498), founder of Laundroswipe (600+ users), Harvard HPAIR 2026 delegate, dual study at VIT Chennai + IIT Madras, CFA L1 Aug 2026. Stack: Python · PyTorch · YOLOv8 · Next.js · Supabase · AWS SAA.">
+<meta name="keywords" content="hire Rahul Babu, Rahul Babu resume, Rahul Babu intern, Applied AI internship India, remote AI internship summer 2026, ML engineer intern India, product engineer intern India, Rahul Babu VIT, Rahul Babu IIT Madras, patent published AI engineer India, YOLOv8 engineer, Laundroswipe founder, CS student full-stack India">
 <meta name="author" content="Rahul Babu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="googlebot" content="index, follow">
-<link rel="canonical" href="https://rahulbk.com/">
-<link rel="alternate" hreflang="en" href="https://rahulbk.com/">
-<link rel="alternate" hreflang="x-default" href="https://rahulbk.com/">
+<link rel="canonical" href="https://rahulbk.com/for-recruiters">
+<link rel="alternate" hreflang="en" href="https://rahulbk.com/for-recruiters">
+<link rel="alternate" hreflang="x-default" href="https://rahulbk.com/for-recruiters">
 
 <!-- FAVICON + PWA -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -26,9 +26,9 @@
 <!-- OPEN GRAPH (Facebook, LinkedIn, Discord, Slack, WhatsApp, iMessage) -->
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Rahul Babu">
-<meta property="og:title" content="Rahul Babu — Builder · Patent-published AI Inventor">
-<meta property="og:description" content="19-year-old builder. Patent-published AI inventor. Founder of Laundroswipe (600+ users). Harvard HPAIR delegate. Shipping since age 8.">
-<meta property="og:url" content="https://rahulbk.com/">
+<meta property="og:title" content="Hire Rahul Babu — Applied AI Intern, Summer 2026, Remote">
+<meta property="og:description" content="Patent-published AI engineer. Founder of Laundroswipe (600+ users). Harvard HPAIR 2026. Dual study at VIT + IIT Madras. Looking for Summer 2026 remote internship in Applied AI / Product Engineering.">
+<meta property="og:url" content="https://rahulbk.com/for-recruiters">
 <meta property="og:image" content="https://rahulbk.com/og.png">
 <meta property="og:image:secure_url" content="https://rahulbk.com/og.png">
 <meta property="og:image:type" content="image/png">
@@ -42,8 +42,8 @@
 
 <!-- TWITTER / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Rahul Babu — Builder · Patent-published AI Inventor">
-<meta name="twitter:description" content="19-year-old builder. Patent-published AI inventor. Founder of Laundroswipe (600+ users). Harvard HPAIR delegate.">
+<meta name="twitter:title" content="Hire Rahul Babu — Applied AI Intern · Summer 2026">
+<meta name="twitter:description" content="Patent-published AI engineer. Laundroswipe (600+ users). Harvard HPAIR 2026. Available remote, May–August 2026.">
 <meta name="twitter:image" content="https://rahulbk.com/og.png">
 <meta name="twitter:image:alt" content="Rahul Babu — Builder · Patent-published AI Inventor">
 <meta name="twitter:creator" content="@tuttucodes">
@@ -325,6 +325,40 @@ nav {
 }
 .nav-links a:hover { color: var(--accent); }
 
+/* MODE TOGGLE */
+.mode-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  border-radius: 999px;
+}
+.mode-pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--ink-dim);
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.mode-pill:hover { color: var(--ink); }
+.mode-pill.active {
+  background: var(--accent);
+  color: var(--bg);
+}
+.mode-pill.active:hover { color: var(--bg); }
+
+/* MODE-SCOPED SECTIONS (legacy, inert) */
+.mode-section { display: none; }
+.mode-section.mode-visible { display: block; }
+
 /* NAV LINKS */
 .nav-links { display: flex; gap: 4px; align-items: center; }
 .nav-link {
@@ -343,20 +377,16 @@ nav {
 .nav-link.active { background: var(--accent); color: #fff; }
 .nav-link.active:hover { background: var(--accent); color: #fff; }
 
-/* CURSOR SPOTLIGHT CANVAS — agency-grade ambient bg */
+/* CURSOR SPOTLIGHT */
 #cursorSpotlight {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
   z-index: 0;
   opacity: 0.9;
   mix-blend-mode: multiply;
 }
-@media (prefers-reduced-motion: reduce) {
-  #cursorSpotlight { display: none; }
-}
+@media (prefers-reduced-motion: reduce) { #cursorSpotlight { display: none; } }
 
 /* HERO PORTRAIT */
 .hero-portrait {
@@ -386,19 +416,15 @@ nav {
   pointer-events: none;
 }
 .hero-portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
   filter: saturate(1.05) contrast(1.03);
   transition: transform 1.2s cubic-bezier(0.32, 0.72, 0, 1);
 }
 .hero-portrait:hover .hero-portrait-img { transform: scale(1.04); }
 .hero-portrait-cap {
   margin-top: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: flex; flex-direction: column; gap: 4px;
   font-family: var(--mono);
   font-size: 10.5px;
   color: var(--ink-faint);
@@ -1566,47 +1592,45 @@ footer {
 </head>
 <body>
 
-<!-- CURSOR SPOTLIGHT — mouse-reactive ambient canvas -->
 <canvas id="cursorSpotlight" aria-hidden="true"></canvas>
 
 <nav>
   <a href="/" class="nav-logo">RAHUL.BABU</a>
   <div class="nav-links">
-    <a href="/" class="nav-link active">Work</a>
-    <a href="/for-recruiters" class="nav-link">For Recruiters</a>
+    <a href="/" class="nav-link">Work</a>
+    <a href="/for-recruiters" class="nav-link active">For Recruiters</a>
     <a href="/for-investors" class="nav-link">For Investors</a>
     <a href="/build-together" class="nav-link">Build With Me</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — recruiter-dedicated -->
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-label">Founder · AI Engineer · Patent-published</div>
+      <div class="hero-label">Applied AI · Product Engineer · Available Summer '26</div>
       <h1>
         I build<br>
-        <em>products</em> that<br>
-        <span class="strike">demo well.</span><br>
-        <em>ship.</em>
+        <em>AI products</em><br>
+        <span class="strike">end-to-end.</span><br>
+        <em>end-to-end.</em>
       </h1>
       <p class="hero-sub">
-        <strong>Rahul Babu.</strong> Founder of <strong>Laundroswipe</strong> — 600+ active users at VIT Chennai. Building since age eight. Patent published in AI medical imaging. Harvard <strong>HPAIR 2026</strong> delegate.
+        <strong>Rahul Babu.</strong> Patent-published in AI (YOLOv8 medical imaging, app. 202641022498). Shipped <strong>Laundroswipe</strong> — 600+ active users. CS @ VIT Chennai + Data Science @ IIT Madras. Harvard <strong>HPAIR 2026</strong>. Looking for a <strong>Summer 2026 remote internship</strong> in Applied AI or Product Engineering.
       </p>
       <div class="hero-cta">
-        <a href="#live" class="btn btn-primary">See what I'm building →</a>
-        <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener" class="btn">Book a call ↗</a>
-        <a href="/build-together" class="btn">Try the AI planner ↗</a>
+        <a href="#for-recruiters" class="btn btn-primary">Why you should hire me →</a>
+        <a href="https://cal.com/rahulbabu" target="_blank" rel="noopener" class="btn">Book 15 min ↗</a>
+        <a href="mailto:rahulbabuk05@gmail.com?subject=Summer%202026%20Internship" class="btn">Email me</a>
       </div>
 
-      <!-- Rahul portrait — Harvard Business School, HPAIR 26 -->
       <figure class="hero-portrait">
         <div class="hero-portrait-frame">
           <picture>
             <source srcset="/rahul-harvard.webp" type="image/webp">
             <img
               src="/rahul-harvard.webp"
-              alt="Rahul Babu — 19-year-old founder of Laundroswipe and patent-published AI inventor from Chennai, India — standing in front of the Harvard Business School sign on Soldiers Field Park, Kresge Way, wearing a dark suit and red tie while attending Harvard HPAIR 2026 as a delegate."
+              alt="Rahul Babu — 19-year-old patent-published AI engineer and founder of Laundroswipe — at Harvard Business School, Soldiers Field Park, Kresge Way, attending Harvard HPAIR 2026 as a delegate in a dark suit and red tie."
               width="640" height="720"
               loading="eager" decoding="async" fetchpriority="high"
               class="hero-portrait-img">
@@ -1614,7 +1638,7 @@ footer {
         </div>
         <figcaption class="hero-portrait-cap">
           <span class="hero-portrait-cap-kicker">Harvard HPAIR 2026</span>
-          Soldiers Field Park · Harvard Business School · delegate
+          Delegate · Soldiers Field Park · Harvard Business School
         </figcaption>
       </figure>
     </div>
@@ -1668,6 +1692,114 @@ footer {
     <span>CFA LEVEL 1</span><span class="dot">◆</span>
   </div>
 </div>
+
+<!-- FOR RECRUITERS — shown only in recruiters mode -->
+<section id="for-recruiters" class="recruiter-block">
+  <div class="recruiter-inner">
+    <div class="recruiter-top-strip">For Recruiters · Summer 2026 Remote</div>
+    <h2 class="recruiter-headline">Applied AI <em>and</em> Product Engineer. <em>Shipping-first</em>, not theory-first. Available <em>remote</em>, summer 2026.</h2>
+
+    <div class="recruiter-grid">
+
+      <div class="recruiter-col">
+        <div class="rcol-tag">01 · The Facts</div>
+        <div class="rcol-item">
+          <div class="rcol-label">Role Target</div>
+          <div class="rcol-val">Applied AI · Product Engineer · Full-stack with AI</div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Availability</div>
+          <div class="rcol-val"><span class="green">●</span> Summer 2026 · May – August · <strong>12 weeks+</strong></div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Location</div>
+          <div class="rcol-val">Remote · Based in Chennai, India</div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Time Zone</div>
+          <div class="rcol-val">IST (GMT+5:30) · Flexible overlap with US / EU</div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Visa / Auth</div>
+          <div class="rcol-val">Indian citizen · No sponsorship needed for remote</div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Education</div>
+          <div class="rcol-val">B.Tech CS @ VIT Chennai · B.S. Data Science @ IIT Madras</div>
+        </div>
+      </div>
+
+      <div class="recruiter-col">
+        <div class="rcol-tag">02 · Links &amp; Proof</div>
+        <div class="rcol-item">
+          <div class="rcol-label">GitHub</div>
+          <div class="rcol-val"><a href="https://github.com/tuttucodes" target="_blank">github.com/tuttucodes ↗</a></div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">LinkedIn</div>
+          <div class="rcol-val"><a href="https://linkedin.com/in/rahulbabuk" target="_blank">linkedin.com/in/rahulbabuk ↗</a></div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Live Product</div>
+          <div class="rcol-val"><a href="https://laundroswipe.com" target="_blank">laundroswipe.com ↗</a> <em>600+ users</em></div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Patent</div>
+          <div class="rcol-val">Application <strong>202641022498</strong> — Indian Patent Office</div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Email</div>
+          <div class="rcol-val"><a href="mailto:rahulbabuk05@gmail.com">rahulbabuk05@gmail.com</a></div>
+        </div>
+        <div class="rcol-item">
+          <div class="rcol-label">Phone</div>
+          <div class="rcol-val"><a href="tel:+919074417293">+91 90744 17293</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TWO PILLARS: AI + PRODUCT -->
+    <div class="stack-pillars">
+      <div class="pillar">
+        <div class="pillar-tag">Pillar 01 · Applied AI / ML</div>
+        <div class="pillar-title">AI that makes it <em>into production</em>.</div>
+        <div class="pillar-skills">
+          <span>CORE</span> &nbsp; Python · PyTorch · TensorFlow · Keras<br>
+          <span>CV</span> &nbsp; YOLOv8 · OpenCV · U-Net segmentation<br>
+          <span>LLM</span> &nbsp; RAG · LangChain · Vector DBs · Fine-tuning<br>
+          <span>RL</span> &nbsp; Reinforcement learning for CV feedback loops<br>
+          <span>INFRA</span> &nbsp; AWS SAA certified · Docker
+        </div>
+        <div class="pillar-proof">
+          <div class="pillar-proof-item"><span><strong>Smart Mirror</strong> — YOLOv8 acne detection + IoT. Patent <strong>202641022498</strong> published.</span></div>
+          <div class="pillar-proof-item"><span><strong>MRI U-Net</strong> — Multimodal brain-tumour segmentation (T1/T2/FLAIR).</span></div>
+          <div class="pillar-proof-item"><span><strong>TCS internship</strong> — CV + RL object-detection game, deployed for specially-abled children.</span></div>
+          <div class="pillar-proof-item"><span><strong>LexAI</strong> — Legal-AI prototype for Indian corporate law (in build).</span></div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-tag">Pillar 02 · Product Engineering</div>
+        <div class="pillar-title">End-to-end product <em>shipping</em>. With users.</div>
+        <div class="pillar-skills">
+          <span>FRONTEND</span> &nbsp; Next.js · React · React Native · TypeScript<br>
+          <span>BACKEND</span> &nbsp; Node.js · Supabase · PostgreSQL · FastAPI<br>
+          <span>INFRA</span> &nbsp; Vercel · Cloudflare · AWS · Docker<br>
+          <span>HARDWARE</span> &nbsp; Raspberry Pi · Arduino · IoT<br>
+          <span>TOOLS</span> &nbsp; Git · Figma · Linear · Notion
+        </div>
+        <div class="pillar-proof">
+          <div class="pillar-proof-item"><span><strong>Laundroswipe</strong> — Shipped and operating. <strong>600+ active users</strong>. Next.js · Supabase · Vercel · Cloudflare.</span></div>
+          <div class="pillar-proof-item"><span><strong>BreezyClaw</strong> — Self-hosted deploy tool. 3-step setup, sub-2-min launch.</span></div>
+          <div class="pillar-proof-item"><span><strong>Smart Robot Dog</strong> — Pi + sensors + voice/motion interaction.</span></div>
+          <div class="pillar-proof-item"><span><strong>6+ freelance builds</strong> across web, branding, internal tools.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- STATS -->
 <div class="stats">
@@ -2115,110 +2247,62 @@ footer {
 
 <script>
 /* ========================================
-   CURSOR SPOTLIGHT — agency-grade mouse-reactive canvas
-   - Full-page fixed canvas
-   - Grid of dots at low opacity
-   - Radial warm spotlight around cursor with smoothed lerp
-   - Dots lean slightly toward cursor (magnetic)
-   - Disabled on touch devices + reduced motion
+   MODE SWITCHING — General / Recruiters / Investors
+   - Persists via ?mode=... in URL for deep-linking
+   - Falls back to 'general' if no param or invalid value
 ======================================== */
-(function () {
-  const canvas = document.getElementById('cursorSpotlight');
-  if (!canvas) return;
-  if (matchMedia('(hover: none)').matches) { canvas.remove(); return; }
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.remove(); return; }
+(function() {
+  const VALID_MODES = ['general', 'recruiters', 'investors'];
 
-  const ctx = canvas.getContext('2d');
-  let W = 0, H = 0, DPR = 1;
-  const target = { x: -9999, y: -9999 };
-  const pos = { x: -9999, y: -9999 };
-  let rafId = null;
+  function setMode(mode, updateURL) {
+    if (!VALID_MODES.includes(mode)) mode = 'general';
 
-  function resize() {
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = window.innerWidth;
-    H = window.innerHeight;
-    canvas.width = W * DPR;
-    canvas.height = H * DPR;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-  resize();
-  addEventListener('resize', resize, { passive: true });
+    // Update pills
+    document.querySelectorAll('.mode-pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.mode === mode);
+    });
 
-  addEventListener('pointermove', (e) => {
-    target.x = e.clientX; target.y = e.clientY;
-    if (!rafId) rafId = requestAnimationFrame(loop);
-  }, { passive: true });
+    // Swap hero text blocks
+    document.querySelectorAll('.hero-mode').forEach(h => {
+      h.style.display = (h.dataset.mode === mode) ? '' : 'none';
+    });
 
-  addEventListener('pointerleave', () => { target.x = -9999; target.y = -9999; });
-
-  const GRID = 42;
-  const DOT_R = 1;
-  const INFLUENCE = 220;
-
-  function loop() {
-    pos.x += (target.x - pos.x) * 0.12;
-    pos.y += (target.y - pos.y) * 0.12;
-
-    ctx.clearRect(0, 0, W, H);
-
-    // 1) Radial warm pool following cursor
-    const pool = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 320);
-    pool.addColorStop(0, 'rgba(217, 68, 20, 0.12)');
-    pool.addColorStop(0.5, 'rgba(162, 99, 31, 0.05)');
-    pool.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    ctx.fillStyle = pool;
-    ctx.fillRect(0, 0, W, H);
-
-    // 2) Magnetic dot grid — only draw dots near the cursor for performance
-    const minX = Math.max(0, pos.x - INFLUENCE - GRID);
-    const maxX = Math.min(W, pos.x + INFLUENCE + GRID);
-    const minY = Math.max(0, pos.y - INFLUENCE - GRID);
-    const maxY = Math.min(H, pos.y + INFLUENCE + GRID);
-
-    for (let gx = Math.floor(minX / GRID) * GRID; gx < maxX; gx += GRID) {
-      for (let gy = Math.floor(minY / GRID) * GRID; gy < maxY; gy += GRID) {
-        const dx = gx - pos.x;
-        const dy = gy - pos.y;
-        const d2 = dx * dx + dy * dy;
-        const d = Math.sqrt(d2);
-        if (d > INFLUENCE) continue;
-        const t = 1 - d / INFLUENCE;
-        const lean = t * t * 14;
-        const lx = gx - (dx / (d || 1)) * lean;
-        const ly = gy - (dy / (d || 1)) * lean;
-        ctx.fillStyle = `rgba(11, 11, 11, ${0.08 + t * 0.35})`;
-        ctx.beginPath();
-        ctx.arc(lx, ly, DOT_R + t * 1.4, 0, Math.PI * 2);
-        ctx.fill();
+    // Show/hide mode-scoped sections
+    document.querySelectorAll('.mode-section').forEach(s => {
+      const match = s.dataset.mode === mode;
+      s.classList.toggle('mode-visible', match);
+      // Re-trigger reveal animations on newly-shown mode sections
+      if (match) {
+        s.querySelectorAll('.reveal').forEach(r => r.classList.add('on'));
       }
+    });
+
+    // Update URL without reload
+    if (updateURL) {
+      const url = new URL(window.location);
+      if (mode === 'general') url.searchParams.delete('mode');
+      else url.searchParams.set('mode', mode);
+      window.history.replaceState({}, '', url);
     }
-
-    rafId = requestAnimationFrame(loop);
   }
-})();
 
-/* ========================================
-   HERO PORTRAIT — 3D tilt toward cursor
-======================================== */
-(function () {
-  const wrap = document.querySelector('.hero-portrait');
-  if (!wrap) return;
-  if (matchMedia('(hover: none)').matches) return;
-  const frame = wrap.querySelector('.hero-portrait-frame');
-  if (!frame) return;
+  // Bind pill clicks
+  document.querySelectorAll('.mode-pill').forEach(p => {
+    p.addEventListener('click', () => {
+      setMode(p.dataset.mode, true);
+      // Scroll to mode section if switching to a specific mode
+      if (p.dataset.mode === 'recruiters') {
+        setTimeout(() => document.getElementById('for-recruiters').scrollIntoView({behavior: 'smooth', block: 'start'}), 50);
+      } else if (p.dataset.mode === 'investors') {
+        setTimeout(() => document.getElementById('for-investors').scrollIntoView({behavior: 'smooth', block: 'start'}), 50);
+      }
+    });
+  });
 
-  wrap.addEventListener('pointermove', (e) => {
-    const r = frame.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    frame.style.transform = `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 8}deg) translateZ(0)`;
-  });
-  wrap.addEventListener('pointerleave', () => {
-    frame.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
-  });
+  // Read from URL on load
+  const params = new URLSearchParams(window.location.search);
+  const initialMode = params.get('mode') || 'general';
+  setMode(initialMode, false);
 })();
 
 /* ========================================
@@ -2582,6 +2666,80 @@ document.addEventListener('keydown', (e) => {
     requestAnimationFrame(loop);
   }
   loop();
+})();
+
+/* CURSOR SPOTLIGHT */
+(function () {
+  const canvas = document.getElementById('cursorSpotlight');
+  if (!canvas) return;
+  if (matchMedia('(hover: none)').matches) { canvas.remove(); return; }
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.remove(); return; }
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, DPR = 1;
+  const target = { x: -9999, y: -9999 }, pos = { x: -9999, y: -9999 };
+  let rafId = null;
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  resize();
+  addEventListener('resize', resize, { passive: true });
+  addEventListener('pointermove', (e) => {
+    target.x = e.clientX; target.y = e.clientY;
+    if (!rafId) rafId = requestAnimationFrame(loop);
+  }, { passive: true });
+  addEventListener('pointerleave', () => { target.x = -9999; target.y = -9999; });
+  const GRID = 42, INFLUENCE = 220;
+  function loop() {
+    pos.x += (target.x - pos.x) * 0.12;
+    pos.y += (target.y - pos.y) * 0.12;
+    ctx.clearRect(0, 0, W, H);
+    const pool = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 320);
+    pool.addColorStop(0, 'rgba(217, 68, 20, 0.12)');
+    pool.addColorStop(0.5, 'rgba(162, 99, 31, 0.05)');
+    pool.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = pool; ctx.fillRect(0, 0, W, H);
+    const minX = Math.max(0, pos.x - INFLUENCE - GRID);
+    const maxX = Math.min(W, pos.x + INFLUENCE + GRID);
+    const minY = Math.max(0, pos.y - INFLUENCE - GRID);
+    const maxY = Math.min(H, pos.y + INFLUENCE + GRID);
+    for (let gx = Math.floor(minX / GRID) * GRID; gx < maxX; gx += GRID) {
+      for (let gy = Math.floor(minY / GRID) * GRID; gy < maxY; gy += GRID) {
+        const dx = gx - pos.x, dy = gy - pos.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d > INFLUENCE) continue;
+        const t = 1 - d / INFLUENCE;
+        const lean = t * t * 14;
+        const lx = gx - (dx / (d || 1)) * lean;
+        const ly = gy - (dy / (d || 1)) * lean;
+        ctx.fillStyle = `rgba(11, 11, 11, ${0.08 + t * 0.35})`;
+        ctx.beginPath();
+        ctx.arc(lx, ly, 1 + t * 1.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    rafId = requestAnimationFrame(loop);
+  }
+})();
+
+/* HERO PORTRAIT TILT */
+(function () {
+  const wrap = document.querySelector('.hero-portrait');
+  if (!wrap || matchMedia('(hover: none)').matches) return;
+  const frame = wrap.querySelector('.hero-portrait-frame');
+  if (!frame) return;
+  wrap.addEventListener('pointermove', (e) => {
+    const r = frame.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    frame.style.transform = `perspective(900px) rotateX(${-y * 6}deg) rotateY(${x * 8}deg) translateZ(0)`;
+  });
+  wrap.addEventListener('pointerleave', () => {
+    frame.style.transform = 'perspective(900px) rotateX(0) rotateY(0)';
+  });
 })();
 </script>
 
