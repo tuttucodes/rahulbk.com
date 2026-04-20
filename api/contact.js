@@ -86,14 +86,7 @@ export default async function handler(req, res) {
 
   if (error) {
     console.error('Supabase insert failed:', error);
-    return res.status(500).json({
-      error: 'Could not save message.',
-      // Exposed only to help diagnose misconfiguration (missing table, wrong schema).
-      // Supabase error bodies do not include secrets.
-      details: error.message,
-      code: error.code || null,
-      hint: error.hint || null,
-    });
+    return res.status(500).json({ error: 'Could not save message.' });
   }
 
   // Optional fan-out email via Resend. Silent no-op if RESEND_API_KEY is absent.
