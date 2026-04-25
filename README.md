@@ -1,16 +1,5 @@
 # rahulbk.com
 
-> Personal site of **[Rahul Babu](https://rahulbk.com)** — patent-published AI inventor,
-> founder of Laundroswipe (600+ users), Harvard HPAIR delegate. Building since age 8.
-
-[![Live](https://img.shields.io/badge/live-rahulbk.com-d94414?style=for-the-badge&labelColor=0b0b0b)](https://rahulbk.com)
-[![Cal](https://img.shields.io/badge/book%20a%20call-cal.com%2Frahulbabu-0b0b0b?style=for-the-badge)](https://cal.com/rahulbabu)
-[![Stack](https://img.shields.io/badge/stack-static%20HTML%20%2B%20Vercel%20%2B%20Supabase-a2631f?style=for-the-badge&labelColor=0b0b0b)](#how-its-built)
-
-![Rahul Babu — Builder · Patent-published AI Inventor](public/og.svg)
-
----
-
 ## What this is
 
 Not a template. Every pixel is hand-authored.
@@ -24,6 +13,16 @@ Three audiences, one URL. The `?mode=` parameter swaps the hero, credentials, an
 stack detail for **General / Recruiters / Investors**. Deep-linkable, SEO-indexed
 separately, zero SPA overhead.
 
+> Personal site of **[Rahul Babu](https://rahulbk.com)** — patent-published AI inventor,
+> founder of Laundroswipe (600+ users), Harvard HPAIR delegate. Building since age 8.
+
+[![Live](https://img.shields.io/badge/live-rahulbk.com-d94414?style=for-the-badge&labelColor=0b0b0b)](https://rahulbk.com)
+[![Cal](https://img.shields.io/badge/book%20a%20call-cal.com%2Frahulbabu-0b0b0b?style=for-the-badge)](https://cal.com/rahulbabu)
+[![Stack](https://img.shields.io/badge/stack-static%20HTML%20%2B%20Vercel%20%2B%20Supabase-a2631f?style=for-the-badge&labelColor=0b0b0b)](#how-its-built)
+
+![Rahul Babu — Builder · Patent-published AI Inventor](public/og.svg)
+
+---
 ## What's clever about it
 
 | | |
